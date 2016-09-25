@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主题页</title>
+    <style>
+        *{margin:0;padding:0;}
+        body{width:100%;}
+        ul,ol,li{list-style-type: none;}
+        a{text-decoration: none;}
+        .clear{clear:both;}
+        /*#header样式区*/
+        #header{height:1539px;background:url("images/zhekoubg.jpg") no-repeat center;min-width:900px;}
+        .inner{width:900px;margin:0 auto;}
+        #header .inner{height:1539px;position:relative;}
+        .topNav li{float:left;height:40px;line-height:40px;padding-right:50px;}
+        .topNav li a{font-size:18px;color:#fff;}
+        .disArea{position:absolute;left:0;bottom:60px;}
+        .disArea .disPro,.saleArea .salePro{width:250px;}
+        .disArea li .disProT,.saleArea li .saleProT{font-size:18px;font-family: "微软雅黑";color:#333333;line-height:40px;font-weight: bold;}
+        .disPro,.salePro{float:left;position:relative;}
+        .proCenter,.saleCenter{margin:0 75px;}
+        .disPrice,.salePrice{width:230px;height:47px;background:#e22221;padding:3px 10px 0;}
+        .disPrice .disleft,.salePrice .saleleft{float:left;}
+        .disPrice .disright,.salePrice .saleright{float:right;}
+        .disPrice img{margin-left:18px;width:74px;}
+        .disleft ,.disright,.saleleft ,.saleright{color:#ffe331;font-size:16px;}
+        .disleft li,.saleleft li{float:left;}
+        .disleft s{line-height:20px;padding-top:3px;}
+        .disleft p,.disright p,.saleright p{font-family: "微软雅黑";font-weight:bold;line-height:22px;}
+        .discount{width:79px;height:79px;position:absolute;right:-20px;top:-20px;}
+        /*#sale样式区*/
+        #sale{width:100%;min-width:900px;background:#6f0400 url("images/redbg_01.jpg") no-repeat center top;font-family: "微软雅黑";}
+        .guang{width:100%;height:200px;background: url("images/guang_02.jpg") no-repeat center;}
+        .saleTitle,.bqTitle{text-align:center;padding:100px 0 74px;}
+        .salecount{width:71px;height:86px;position:absolute;right:-12px;top:-33px;}
+        .saleArea li .saleProT{color:#fff;}
+        .salePrice{color:#e22221;}
+        .saleleft{text-align:center;}
+        .saleleft s{font-size:14px;}
+        .saleleft p{font-size:14px;font-weight: bold;}
+        .salePrice img{width:94px;margin-left:8px;}
+        /*#boutique样式区*/
+        #boutique{width:100%;min-width:900px;background:#6f0400 url("images/redbg_01.jpg") no-repeat center top;font-family: "微软雅黑";font-weight:bold;}
+        .bqPro{width:200px;}
+        .bqArea .bqPro{float:left;margin-right:33px;}
+        .bqArea .bqproLast{float:right;margin:0;padding-bottom:57px;}
+        .bqProT{height:33px;line-height:33px;color:#fff;font-size:14px;}
+        .bqPrice{height:50px;}
+        .bqPrice p{float:right;height:50px;line-height:50px;background:#ffe331;color:#e22221;font-size:20px;padding:0 10px;}
+        .bqMore{text-align: center;padding-bottom:65px;}
+        /*#footer样式区*/
+        .foot {height: 240px;clear: both;background-image: url(images/pic_42.jpg);background-repeat: no-repeat;
+            background-position: center top; background-color: #242424;}
+        .foot_center {width: 1200px;margin-right: auto;margin-left: auto;}
+        .foot_nav {float: left;padding-top: 91px;}
+        .foot_nav ul li {float: left;margin-left: 35px;}
+        .foot_nav ul li h3 {font-family: "微软雅黑";font-size: 14px;color: #aaa;font-weight: bold;margin-bottom: 10px;  }
+        .foot_nav ul li p {line-height: 22px;color: #999;}
+        .foot_nav ul li p a {color: #999;font-size:12px;}
+        .foot_nav ul li p a:hover{color: #089c4f;}
+        .nav_copy {float: left;padding-top: 15px;margin-left: 5px;width: 615px;}
+        .nav_copy p {line-height: 22px;color: #666666;font-size:14px;}
+        .nav_copy p span {font-family: "微软雅黑";}
+        #slides li { display:block; width:100%; height:100%; list-style:none; padding:0; margin:0; position:absolute}
+        #slides li a { display:block; width:100%; height:100%; text-indent:-9999px}
+        #pagination li { display:block; list-style:none; width:10px; height:10px; float:left; margin-left:15px; border-radius:5px; background:#FFF }
+        #pagination li a { display:block; width:100%; height:100%; padding:0; margin:0;  text-indent:-9999px;}
+        #pagination li a img{width:750px; height:610px!important; }
+        .rslides li {width: 246px;height:60px;padding-bottom:7px;margin-bottom:7px;border-bottom:#f6f6f6 solid 1px;}
+        .rslides li .m img{ width:100%; height:100%;}
+        .rslides li .caption a{ font-size:16px; width:155px; height:28px; line-height:28px; overflow:hidden; color:#000; display: inline-block;}
+        .rslides img {display: block;height: auto;float: left;width: 100%;border: 0;}
+        .slide li {position: absolute;width: 246px;height: 198px;left: 0;top: 0;}
+        .slide img {display: block;position: relative;z-index: 1;height: 179px;width: 244px;border: 0;}
+        .slide .caption a{color: #525151;}
+        .rslides li p strong{ text-align:center; font-family:微软雅黑; font-size:16px; font-weight:normal; color:#ff0000;}
+        .sys_spec_text li{ float:left; height:28px; position:relative; margin:2px 6px 2px 0; outline:none;}
+        .sys_spec_text li a{ height:24px; padding:1px 6px; border:1px solid #ccc; background:#fff; display:inline-block; line-height:24px;}
+        .sys_spec_text li a:hover{ border:2px solid #e4393c; padding:0 5px; text-decoration:none;}
+        .sys_spec_text li i{ position:absolute; width:10px; height:10px; font-size:0; line-height:0; right:2px; bottom:2px; background:url(../images/sys_item_selected.gif) no-repeat right bottom; z-index:99; display:none;}
+        .sys_spec_text li.selected a{ border:2px solid #e4393c; padding:0 5px;}
+        .sys_spec_text li.selected i{ display:block;}
+        .Limited.deals ul{ width:1150px; float:left;}
+        .Limited.deals ul li{ width:20%; margin:0; text-align:center; height:157px; position: relative; padding-bottom: 10px;}
+        .Limited.deals ul li img{ height:100%; width:auto;}
+        .flowBox th, td{ line-height:32px; font-size:14px !important; }
+        .flowBox h6{ border-bottom:#37A90C solid 2px; margin:0 6px;}
+        .flowBox h6 span{ padding-left:0; margin-right:10px; color:#444;}
+        .flowBox input{ margin-top:4px;}
+        .miaosha.deals ul{ width:1190px; float:left; margin-left: 10px;}
+        .miaosha.deals ul li{width:386px; margin:2px; text-align:left; height:157px; position: relative; padding-bottom: 15px;
+            border: 2px solid #B42017;}
+        /*.miaosha.deals .miaosha_cd{padding: 15px;}*/
+        .miaosha.deals .count_down .time i{color: #000; font-style: normal; font-weight: bolder;}
+        .miaosha.deals .miaosha_p i{font-size: 12px; font-style: normal;}
+        .miaosha.deals .miaosha_btn a{background-color: #ff0000; color: #fff; padding: 2px 20px; font-size: 14px;}
+        .miaosha.deals .miaosha_mt p{
+            background: rgba(0, 0, 0, 0) url("//img10.360buyimg.com/cms/jfs/t163/169/3005777368/1317/1bd90fc/53de5311Nc59b58d3.png") no-repeat scroll -40px -4px;
+            color: #fff;height: 24px;font-size: 16px;line-height: 18px;padding: 5px 0 0 9px;width: 150px;}
+        .miaosha .xianshitehui_t p{float: left;}
+        .xianshitehui.deals ul li{width:386px; margin:2px; text-align:left; height:157px; position: relative; padding-bottom: 15px;border: 2px solid #ffb400;}
+        .miaosha .xianshimiaosha_t p{float: left;}
+        .xianshimiaosha.deals ul li{width:386px; margin:2px; text-align:left; height:157px; position: relative; padding-bottom: 15px;border: 2px solid #ffb400;}
+        .suit_list_0 ul li{width: 156px;height: 190px;padding: 5px;margin: 5px;float: left;border: 1px #E0E0E0 dashed;}
+        .suit_list_0 ul li img{width: 100px;height: 100px;}
+        .suit_lbb div {text-align: left;}
+        .g_pay div{ height:20px; line-height:20px;}
+        .g_pay div a{ float:left; margin-right:7px;}
+        .g_pay div span{ display:inline-block;}
+        .g_pay span{display: block;}
+        .g_img img {width: 50px;}
+        .wwww_orders ul{border-bottom: none !important;}
+        .wwww_order_goods_list tr td {height: auto;color: #fff;text-align: left;}
+        .calendar td {font-size: 12px !important;line-height: 20px;}
+        .wwww_order_search div {padding: 5px;}
+        .wwww_order_st ul {border: none;}
+        .wwww_order_st ul li {padding: 0 10px;}
+        .wwww_order_addr ul {border: none;padding: 0;}
+        .wwww_order_addr li {width: 159px;border: 1px solid #e0e0e0;margin: 5px;cursor: pointer; position: relative;}
+        .wwww_order_st ul li.sel a {color: #39892f;}
+        #bottomNav{clear: both;padding: 10px 0 25px 0;margin-left: auto;margin-right: auto;width: 1200px;color: #666;}
+        .links{padding:0 12px;}
+        .links a{color:#ccc; text-decoration:none;}
+        .links img{width:88px; height:30px; margin:5px;}
+        .floor_list_ll h2{float: left;padding: 3px 0 0 2px;font-size: 16px;}
+        .floor_list_ll div{float: right;padding-right: 5px;}
+        .floor_list_ll div a img{width: 25px !important;height: 25px !important;}
+        #brands img{width:78px; height:40px;border:1px solid #37a90c;}
+        #brands a{color:#0069cd; text-decoration:none; margin:2px 1px; display:block; float:left;}
+        .blank5{clear: both;height: 5px;line-height: 5px;}
+        .foot_nav_menu li{float: left; padding-right: 15px;}
+        .foot_nav_menu li a{color: #ccc; font-size: 14px;}
+        .foot_qr{padding: 13px 0 5px 33px;}
+        .foot_qr div{float: left; padding: 10px 25px;}
+        .foot_qr p{color: #ccc; text-align: center;}
+        .w_promotion span{padding: 4px 8px; background-color: #ff0000; color: #fff;}
+        .lefttime span{color: red; font-size: 14px; font-weight: bold;}
+        .coupon_get_success li {float: none; display: block;}
+        .floor_F1_list ul ,.floor_F2_list ul ,.floor_F3_list ul ,.floor_F4_list ul ,.floor_F5_list ul{white-space:inherit;}
+        .floor_F1_list ul li,.floor_F2_list ul li,.floor_F3_list ul li,.floor_F4_list ul li,.floor_F5_list ul li{ height:313px;}
+        .floor_F1_list ul li  a,.floor_F2_list ul li  a,.floor_F3_list ul li  a,.floor_F4_list ul li  a,.floor_F5_list ul li  a{ width:auto;}
+        .floor_F1_list li div a,.floor_F2_list li div a,.floor_F3_list li div a,.floor_F4_list li div a,.floor_F5_list li div a{ height:auto; width:26px;}
+        .floor_F1_list ul li  h1,.floor_F2_list ul li  h1,.floor_F3_list ul li  h1,.floor_F4_list ul li  h1,.floor_F5_list ul li  h1{ overflow:inherit; height:38px; line-height:19px; overflow:hidden; text-align:left;}
+        .foot_qr img {width: 110px !important;}
+        .consignee_s div {float: left;height: 26px;line-height: 26px;padding: 5px 8px;}
+        #addr-form li {padding: 10px !important;}
+        .bonus_list_t a{ width:100%; height:100%; display:block;}
+        .bonus_list_c span{ margin-right:15px;}
+        #topcontrol{ z-index:999;}
+    </style>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //首先将#topcontrol隐藏
+            $("#topcontrol").hide();
+            //当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+            $(function () {
+                $(window).scroll(function(){
+                    if ($(window).scrollTop()>100){
+                        $("#topcontrol").fadeIn(400);
+                    }else {
+                        $("#topcontrol").fadeOut(400);
+                    }
+                });
+                //当点击跳转链接后，回到页面顶部位置
+                $("#topcontrol").click(function(){
+                    $('body,html').animate({scrollTop:0},400);
+                    return false;
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="header">
+        <div class="inner">
+            <ul class="topNav">
+                <li><a href="">全部商品分类</a></li>
+                <li><a href="">首页</a></li>
+                <li><a href="">限时特惠</a></li>
+                <li><a href="">精品推荐</a></li>
+                <li><a href="">优惠套餐</a></li>
+                <li><a href="">绿优咨询</a></li>
+                <li><a href="">关于绿优</a></li>
+            </ul>
+            <ul class="disArea">
+                <li class="disPro">
+                    <a href="#">
+                        <img src="images/zhekou_03.jpg">
+                        <p class="disProT">绿优全装普通腻子</p>
+                        <ul class="disPrice">
+                            <li class="disleft">
+                                <s>原价：￥20</s>
+                                <p>活动劲爆价：</p>
+                            </li>
+                            <img src="images/price12_13.jpg"/>
+                            <li class="disright">
+                                <p>立即</p>
+                                <p>抢购</p>
+                            </li>
+                        </ul>
+                        <img src="images/6zhe_03.png" class="discount"/>
+                    </a>
+                </li>
+                <li class="disPro proCenter">
+                    <a href="#">
+                        <img src="images/zhekou_05.jpg">
+                        <p class="disProT">绿优全装粉刷石膏</p>
+                        <ul class="disPrice">
+                            <li class="disleft">
+                                <s>原价：￥20</s>
+                                <p>活动劲爆价：</p>
+                            </li>
+                            <img src="images/price12_13.jpg"/>
+                            <li class="disright">
+                                <p>立即</p>
+                                <p>抢购</p>
+                            </li>
+                        </ul>
+                        <img src="images/6zhe_03.png" class="discount"/>
+                    </a>
+                </li>
+                <li class="disPro">
+                    <a href="#">
+                        <img src="images/zhekou_07.jpg">
+                        <p class="disProT">雷帝防水9229</p>
+                        <ul class="disPrice">
+                            <li class="disleft">
+                                <s>原价：￥169</s>
+                                <p>活动劲爆价：</p>
+                            </li>
+                            <img src="images/price135_16.jpg"/>
+                            <li class="disright">
+                                <p>立即</p>
+                                <p>抢购</p>
+                            </li>
+                            <img src="images/8zhe_03.png" class="discount"/>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="sale">
+        <div class="inner">
+            <div class="saleTitle"><img src="images/tehui_17.png"/></div>
+            <ul class="saleArea">
+                <li class="salePro">
+                    <a href="#">
+                        <img src="images/tehuipro_16.jpg">
+                        <p class="saleProT">德高彩色防霉瓷砖填缝料 白色</p>
+                        <ul class="salePrice">
+                            <li class="saleleft">
+                                <s>原价：￥1386</s>
+                                <p>活动劲爆价：</p>
+                            </li>
+                            <img src="images/price1149_17.jpg"/>
+                            <li class="saleright">
+                                <p>立即</p>
+                                <p>抢购</p>
+                            </li>
+                        </ul>
+                        <img src="images/jiang219_17.png" class="salecount"/>
+                    </a>
+                </li>
+                <li class="salePro saleCenter">
+                    <a href="#">
+                        <img src="images/tehuipro_18.jpg">
+                        <p class="saleProT">韦伯 防水堵漏宝 速凝型</p>
+                        <ul class="salePrice">
+                            <li class="saleleft">
+                                <s>原价：￥20</s>
+                                <p>活动劲爆价：</p>
+                            </li>
+                            <img src="images/price16.9_28.jpg"/>
+                            <li class="saleright">
+                                <p>立即</p>
+                                <p>抢购</p>
+                            </li>
+                        </ul>
+                        <img src="images/jiang3.1_17.png" class="salecount"/>
+                    </a>
+                </li>
+                <li class="salePro">
+                    <a href="#">
+                        <img src="images/tehuipro_20.jpg">
+                        <p class="saleProT">德国都芳生态弹力内墙漆</p>
+                        <ul class="salePrice">
+                            <li class="saleleft">
+                                <s>原价：￥20</s>
+                                <p>活动劲爆价：</p>
+                            </li>
+                            <img src="images/price16.9_28.jpg"/>
+                            <li class="saleright">
+                                <p>立即</p>
+                                <p>抢购</p>
+                            </li>
+                        </ul>
+                        <img src="images/jiang3.1_17.png" class="salecount"/>
+                    </a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="guang"></div>
+    </div>
+    <div id="boutique">
+        <div class="inner">
+            <div class="bqTitle"><img src="images/jingtitle_03.png"/></div>
+            <ul class="bqArea">
+                <li class="bqPro">
+                    <a href="#">
+                        <img src="images/jingpro_03.jpg">
+                        <p class="bqProT">立邦竹炭超哑光净味五合一</p>
+                        <div class="bqPrice">
+                            <img src="images/goodprice_03.png"/>
+                            <p class="saleright">
+                                立即购买
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li class="bqPro">
+                    <a href="#">
+                        <img src="images/jingpro_05.jpg">
+                        <p class="bqProT">美巢易呱平YGP800GQ</p>
+                        <div class="bqPrice">
+                            <img src="images/goodprice_05.png"/>
+                            <p class="saleright">
+                                立即购买
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li class="bqPro">
+                    <a href="#">
+                        <img src="images/jingpro_07.jpg">
+                        <p class="bqProT">德国汉高百得防水涂料</p>
+                        <div class="bqPrice">
+                            <img src="images/goodprice_07.png"/>
+                            <p class="saleright">
+                                立即购买
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <li class="bqPro bqproLast">
+                    <a href="#">
+                        <img src="images/jingpro_09.jpg">
+                        <p class="bqProT">昆仑塑铜线BV4平方双色</p>
+                        <div class="bqPrice">
+                            <img src="images/goodprice_07.png"/>
+                            <p class="saleright">
+                                立即购买
+                            </p>
+                        </div>
+                    </a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="bqMore"><a href="#"><img src="images/more_10.png"></a></div>
+        </div>
+    </div>
+
+    </div>
+    <div id="topcontrol" title="返回顶部" style="position: fixed; bottom: 80px; right: 30px; opacity: 1; cursor: pointer;"><img src="images/topback.gif" style="width:54px; height:54px; border:0;"><p style="color:#999;font-size:12px;text-align:center;">返回顶部</p></div>
+</body>
+</html>
